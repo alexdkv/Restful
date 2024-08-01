@@ -2,32 +2,16 @@ package com.example.Restful.service;
 
 import com.example.Restful.model.dto.AddSupplementDTO;
 import com.example.Restful.model.dto.SupplementDTO;
-import com.example.Restful.model.entity.Supplement;
-import com.example.Restful.repository.SupplementRepository;
-import org.modelmapper.ModelMapper;
-import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PagedModel;
 
-@Service
-public class SupplementService {
-    private final SupplementRepository supplementRepository;
-    private final ModelMapper modelMapper;
+public interface SupplementService {
 
-    public SupplementService(SupplementRepository supplementRepository, ModelMapper modelMapper) {
-        this.supplementRepository = supplementRepository;
-        this.modelMapper = modelMapper;
-    }
+    SupplementDTO createSupplement(AddSupplementDTO addSupplementDTO);
 
+    SupplementDTO getById(Long id);
 
-    public SupplementDTO createSupplement(AddSupplementDTO addSupplementDTO) {
-        Supplement supplement = supplementRepository.save(map(addSupplementDTO));
-        return map(supplement);
+    PagedModel<SupplementDTO> getAllSupplements(Pageable pageable);
 
-    }
-
-    private SupplementDTO map(Supplement supplement){
-        return modelMapper.map(supplement, SupplementDTO.class);
-    }
-    private Supplement map(AddSupplementDTO addSupplementDTO){
-        return modelMapper.map(addSupplementDTO, Supplement.class);
-    }
+    void deleteSupplement(Long id);
 }

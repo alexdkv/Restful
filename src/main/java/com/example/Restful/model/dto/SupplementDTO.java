@@ -9,8 +9,18 @@ public class SupplementDTO {
 
     private Double caloriesPerServing;
 
+    private String photoUrl;
+
     public Long getId() {
         return id;
+    }
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
     public void setId(Long id) {

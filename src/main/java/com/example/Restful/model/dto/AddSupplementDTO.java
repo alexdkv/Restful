@@ -7,8 +7,18 @@ public class AddSupplementDTO  {
 
     private Double caloriesPerServing;
 
+    private String photoUrl;
+
     public Double getCaloriesPerServing() {
         return caloriesPerServing;
+    }
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
     public void setCaloriesPerServing(Double caloriesPerServing) {
