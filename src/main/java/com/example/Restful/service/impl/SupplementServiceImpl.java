@@ -7,6 +7,7 @@ import com.example.Restful.repository.SupplementRepository;
 import com.example.Restful.service.SupplementService;
 import com.example.Restful.service.exception.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PagedModel;
 import org.springframework.stereotype.Service;
@@ -43,11 +44,13 @@ public class SupplementServiceImpl implements SupplementService {
                 .orElseThrow(ObjectNotFoundException::new);
     }
 
+
     @Override
     public PagedModel<SupplementDTO> getAllSupplements(Pageable pageable){
         return new PagedModel<>(supplementRepository
                 .findAll(pageable)
                 .map(this::mapSupplementToDTO)
+
         );
     }
 

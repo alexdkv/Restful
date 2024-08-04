@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: Restful
+
+  jpa:
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      mode: never

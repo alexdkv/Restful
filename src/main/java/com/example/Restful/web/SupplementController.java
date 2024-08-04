@@ -23,8 +23,8 @@ public class SupplementController {
         return ResponseEntity.ok(supplementDTO);
     }
 
-    @GetMapping("supplement/{id}")
-    public ResponseEntity<SupplementDTO> singleSupplement(@PathVariable("id") Long id){
+    @GetMapping("/supplement/{id}")
+    public ResponseEntity<SupplementDTO> getById(@PathVariable("id") Long id){
         return ResponseEntity.ok(supplementService.getById(id));
     }
 
@@ -36,7 +36,7 @@ public class SupplementController {
         return ResponseEntity.ok(supplementService.getAllSupplements(pageable));
     }
 
-    @DeleteMapping("supplement/{id}")
+    @DeleteMapping("/supplement/{id}")
     public ResponseEntity<SupplementDTO> deleteSupplementById(@PathVariable("id")Long id){
         supplementService.deleteSupplement(id);
         return ResponseEntity.noContent().build();
